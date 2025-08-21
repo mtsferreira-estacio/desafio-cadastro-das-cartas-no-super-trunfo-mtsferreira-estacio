@@ -75,6 +75,10 @@ int main() {
     free(carta); 
     carta = NULL; 
 
+    printf("Pressione qualquer teclar para finalizar...\n");
+    while(getchar() != '\n');
+    getchar();
+
     return 0;
 }
 
