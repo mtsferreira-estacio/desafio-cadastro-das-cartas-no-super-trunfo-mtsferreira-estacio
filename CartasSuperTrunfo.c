@@ -34,14 +34,14 @@ int main() {
     scanf("%d", &numCartas);
     while(getchar() != '\n');
     if(numCartas<2){
-        printf("\nERRO! Quantidade mínima de cartas(2)\n");
+        printf("\nERRO! Quantidade minima de cartas(2)\n");
     }
     }while(numCartas<2);
 
     Cartas *carta = (Cartas *)malloc(numCartas * sizeof(Cartas)); // Criando um array de cartas
 
     if(carta ==  NULL){
-        printf("Erro ao alocar memória!\n");
+        printf("Erro ao alocar memoria!\n");
         return 1;
     }
 
@@ -58,7 +58,7 @@ int main() {
     mostrarCartas(carta, numCartas);
 
     // Comparação das Cartas
-    printf("\n     ----- Comparação das Cartas -----\n");
+    printf("\n     ----- Comparacao das Cartas -----\n");
     printf("-------------------------------------------\n");
     printf("Escolha a primeira carta (1 a %d): ", numCartas);
     scanf("%d", &esc1);
@@ -68,14 +68,14 @@ int main() {
     if(esc1>0 && esc2<=numCartas && esc2>0 && esc2 <= numCartas){
         compararCartas(&carta[esc1-1], &carta[esc2-1]);
     }else{
-        printf("Escolhas invalidas. Por favor, digite números entre 1 e %d.\n", numCartas);
+        printf("Escolhas invalidas. Por favor, digite numeros entre 1 e %d.\n", numCartas);
     }
 
     // libera o malloc
     free(carta); 
     carta = NULL; 
 
-    printf("Pressione qualquer teclar para finalizar...\n");
+    printf("Pressione qualquer tecla para finalizar...\n");
     while(getchar() != '\n');
     getchar();
 
@@ -95,7 +95,7 @@ void cadastroCartas(Cartas *carta){
     scanf(" %2s", carta->estado);
     while(getchar() != '\n');
 
-    printf("Código da Carta (01, 02): ");
+    printf("Codigo da Carta (01, 02): ");
     scanf(" %2s", tempCod);
     while(getchar() != '\n');
 
@@ -105,15 +105,15 @@ void cadastroCartas(Cartas *carta){
     fgets(carta->cidade, sizeof(carta->cidade), stdin);
     carta->cidade[strcspn(carta->cidade, "\n")] = 0;
 
-    printf("População: ");
+    printf("Populacao: ");
     scanf("%llu", &carta->populacao);
     while(getchar() != '\n');
     
-    printf("Quantidade de pontos turísticos: ");
+    printf("Quantidade de pontos turisticos: ");
     scanf("%d", &carta->pontosTuristicos);
     while(getchar() != '\n');
 
-    printf("Área(em km²): ");
+    printf("Area(em km2): ");
     scanf("%lf", &carta->area);
     while(getchar() != '\n');
    
@@ -169,14 +169,14 @@ void mostrarCartas(Cartas *carta, int numCartas){
     for(int i=0;i<numCartas;i++){
         printf("\n----- Carta #%d -----\n",i+1);
         printf("Estado: %s\n",carta[i].estado);
-        printf("Código da Carta: %s\n",carta[i].codCarta);
+        printf("Codigo da Carta: %s\n",carta[i].codCarta);
         printf("Cidade: %s\n",carta[i].cidade);
-        printf("População: %llu\n",carta[i].populacao);
-        printf("PIB: %.2lf bilhões de reais\n",carta[i].pib);
+        printf("Populacao: %llu\n",carta[i].populacao);
+        printf("PIB: %.2lf bilhoes de reais\n",carta[i].pib);
         printf("PIB per capta: %.2lf R$\n",carta[i].pibPerCapta);
-        printf("Área: %.2lf km²\n",carta[i].area);
+        printf("Area: %.2lf km²\n",carta[i].area);
         printf("Densidade Populacional: %.2lf hab/km²\n",carta[i].densPop);
-        printf("Pontos Turísticos: %d\n",carta[i].pontosTuristicos);
+        printf("Pontos Turisticos: %d\n",carta[i].pontosTuristicos);
         printf("Super Poder: %.2lf\n", carta[i].superPoder);
     }
 }
@@ -188,7 +188,7 @@ void compararCartas(Cartas *carta1, Cartas *carta2){
 
     // Comparacoes das Propriedades
     // Populacao
-    printf("\n----- População -----\n");
+    printf("\n----- Populacao -----\n");
     if(carta1->populacao > carta2->populacao){
         printf("\nCarta 1 vence!\n");
         pontCarta1++;
@@ -200,7 +200,7 @@ void compararCartas(Cartas *carta1, Cartas *carta2){
     }
 
     //Área
-    printf("\n----- Área -----\n");
+    printf("\n----- Area -----\n");
     if(carta1->area > carta2->area){
         printf("\nCarta 1 vence!\n");
         pontCarta1++;
@@ -224,7 +224,7 @@ void compararCartas(Cartas *carta1, Cartas *carta2){
     }
 
     //Pontos Turísticos
-    printf("\n----- Pontos Turísticos -----\n");
+    printf("\n----- Pontos Turisticos -----\n");
     if(carta1->pontosTuristicos > carta2->pontosTuristicos){
         printf("\nCarta 1 vence!\n");
         pontCarta1++;
